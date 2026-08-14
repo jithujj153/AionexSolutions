@@ -1,0 +1,92 @@
+:root {
+  /* Charcoal base + steel-blue light wash — matches accent #3d8fdb */
+  --color-bg-dark: #0a0e14;
+  --color-bg-dark-elevated: #121826;
+  --color-bg-light: #eaf2fb;
+  /* Surfaces / cards — blue wash, not pure white */
+  --color-bg-light-elevated: #f3f8fd;
+  --color-ink-on-dark: #eef3fa;
+  --color-ink-on-light: #0f1724;
+  --color-muted-on-dark: #93a0b5;
+  --color-muted-on-light: #4a6280;
+
+  /* Logo / mark — lighter charming blue */
+  --color-brand-mark-on-dark: #7eb6e8;
+  --color-brand-mark-on-light: #2f7fd1;
+
+  /* Primary accent — brighter, friendlier blue */
+  --color-accent: #3d8fdb;
+  --color-accent-hover: #5aa3e6;
+  --color-accent-soft: #d4e8f8;
+  --color-accent-ink: #ffffff;
+  /* Pills / chips sit a step bluer than cards */
+  --color-surface-pill: var(--color-accent-soft);
+
+  --color-border-dark: rgba(238, 243, 250, 0.12);
+  --color-border-light: rgba(45, 100, 170, 0.14);
+  --color-danger: #c45c5c;
+  --color-success: #2f8f6e;
+
+  --font-sans: var(--font-dm-sans), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-syne), var(--font-dm-sans), system-ui, sans-serif;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --max-width: 1120px;
+  --header-height: 88px;
+
+  --shadow-soft: 0 18px 50px rgba(10, 30, 60, 0.28);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 420ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up var(--duration) var(--ease-out) both;
+}
+
+.animate-fade-in {
+  animation: fade-in calc(var(--duration) + 80ms) var(--ease-out) both;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+
+.delay-2 {
+  animation-delay: 160ms;
+}
+
+.delay-3 {
+  animation-delay: 240ms;
+}

@@ -1,0 +1,22 @@
+﻿# dependencies / build
+web/node_modules/
+web/.next/
+web/out/
+**/node_modules/
+
+# secrets & local env
+**/.env
+**/.env.local
+**/.env.*.local
+web/.vercel/
+
+# OS / logs
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# zips / temp
+**/_smoke-*
+*.zip
+!wp-plugins/aionex-mu-plugins.zip

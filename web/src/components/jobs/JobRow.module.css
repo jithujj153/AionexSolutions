@@ -1,0 +1,39 @@
+.row {
+  border-bottom: 1px solid var(--color-border-light);
+  animation: fade-up var(--duration) var(--ease-out) both;
+}
+
+.link {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-5);
+  align-items: start;
+}
+
+.link h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  margin-top: var(--space-2);
+  color: var(--color-muted-on-light);
+  font-size: 0.92rem;
+}
+
+.link time {
+  color: var(--color-muted-on-light);
+  font-size: 0.88rem;
+}
+
+.link:hover h2 {
+  color: var(--color-accent);
+}
+
+@media (min-width: 720px) {
+  .link {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}

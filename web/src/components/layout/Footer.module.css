@@ -1,0 +1,209 @@
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: auto;
+  border-top: 1px solid var(--color-border-dark);
+  background: linear-gradient(180deg, #121826 0%, #0a0e14 100%);
+  color: var(--color-muted-on-dark);
+}
+
+.glow {
+  position: absolute;
+  inset: -40% -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 40% at 20% 30%, rgba(61, 143, 219, 0.34), transparent 55%),
+    radial-gradient(ellipse 40% 45% at 75% 60%, rgba(126, 182, 232, 0.14), transparent 50%),
+    radial-gradient(ellipse 35% 35% at 50% 10%, rgba(61, 143, 219, 0.2), transparent 55%),
+    conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(61, 143, 219, 0.12),
+      transparent 25%,
+      rgba(126, 182, 232, 0.08) 45%,
+      transparent 65%,
+      rgba(61, 143, 219, 0.14) 85%,
+      rgba(61, 143, 219, 0.1)
+    );
+  filter: blur(28px);
+  opacity: 0.9;
+  animation: footer-glow-drift 14s ease-in-out infinite alternate;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(61, 143, 219, 0.12) 42%,
+    rgba(126, 182, 232, 0.07) 52%,
+    transparent 68%
+  );
+  background-size: 220% 100%;
+  animation: footer-sheen 9s linear infinite;
+  mix-blend-mode: screen;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(3.5rem, 8vw, 6rem);
+  padding-bottom: var(--space-6);
+}
+
+@keyframes footer-glow-drift {
+  0% {
+    transform: translate3d(-6%, 4%, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(5%, -3%, 0) scale(1.08) rotate(8deg);
+  }
+  100% {
+    transform: translate3d(8%, 2%, 0) scale(1.04) rotate(-4deg);
+  }
+}
+
+@keyframes footer-sheen {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .footer::after {
+    animation: none;
+  }
+
+  .glow {
+    transform: none;
+    opacity: 0.55;
+  }
+}
+
+.top {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.brandCol {
+  max-width: 34rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--color-brand-mark-on-dark);
+  font-family: var(--font-display);
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.mark {
+  width: 36px;
+  height: 36px;
+}
+
+.tagline {
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--color-ink-on-dark);
+  max-width: 22ch;
+}
+
+.ctaRow {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.columns {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.col h2 {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.col ul {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.col a {
+  color: var(--color-ink-on-dark);
+  font-size: 1rem;
+  transition: color 160ms ease;
+}
+
+.col a:hover {
+  color: var(--color-accent);
+}
+
+.contactList li {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.contactList span {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted-on-dark);
+}
+
+.contactList a {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+
+.bottom {
+  padding-top: var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.note {
+  color: var(--color-muted-on-dark);
+}
+
+@media (min-width: 900px) {
+  .top {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.2fr);
+    align-items: start;
+  }
+
+  .columns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}

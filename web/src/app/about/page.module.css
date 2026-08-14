@@ -1,0 +1,212 @@
+.about {
+  padding-top: 0;
+}
+
+.hero {
+  padding-top: calc(var(--header-height) + 1.5rem);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.lead {
+  margin-top: var(--space-5);
+  max-width: 54ch;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--color-muted-on-light);
+}
+
+.section,
+.sectionAlt,
+.ctaBand {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.sectionAlt {
+  background: var(--color-accent-soft);
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  margin-top: var(--space-3);
+  max-width: 18ch;
+  color: var(--color-ink-on-light);
+}
+
+.sectionLead {
+  margin-top: var(--space-4);
+  max-width: 48ch;
+  line-height: 1.6;
+  color: var(--color-muted-on-light);
+}
+
+.cardGrid {
+  margin-top: var(--space-7);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.card {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.card h3,
+.values h3,
+.process h3,
+.contactCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.card p,
+.values p,
+.process p {
+  color: var(--color-muted-on-light);
+  line-height: 1.6;
+}
+
+.process {
+  list-style: none;
+  margin-top: var(--space-7);
+  display: grid;
+  gap: var(--space-5);
+}
+
+.process li {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-4);
+}
+
+.process span {
+  display: block;
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.values {
+  margin-top: var(--space-7);
+  display: grid;
+  gap: var(--space-5);
+}
+
+.values article {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-4);
+}
+
+.chips {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.chips a {
+  border: 1px solid var(--color-border-light);
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  background: var(--color-surface-pill);
+  color: var(--color-ink-on-light);
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.chips a:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.ctaBand {
+  background: var(--color-bg-dark);
+  color: var(--color-ink-on-dark);
+}
+
+.ctaBand .h2 {
+  color: var(--color-ink-on-dark);
+}
+
+.ctaBand .sectionLead {
+  color: var(--color-muted-on-dark);
+}
+
+.ctaBand .eyebrow {
+  color: var(--color-accent);
+}
+
+.ctaInner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.ctaActions {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.contactCard {
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.contactCard p {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.contactCard span {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted-on-dark);
+}
+
+.contactCard a {
+  color: var(--color-ink-on-dark);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  word-break: break-word;
+}
+
+.contactCard a:hover {
+  color: var(--color-accent);
+}
+
+.contactLink {
+  color: var(--color-accent) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600;
+}
+
+@media (min-width: 860px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .process {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .values {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6) var(--space-7);
+  }
+
+  .ctaInner {
+    grid-template-columns: 1.4fr 0.9fr;
+    align-items: stretch;
+  }
+}

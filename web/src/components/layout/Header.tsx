@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { AionexMark } from "@/components/brand/AionexMark";
+import { ourServices } from "@/lib/services";
 import styles from "./Header.module.css";
 
 const nav = [
   { href: "/jobs", label: "Jobs" },
-  { href: "/services", label: "Services" },
   { href: "/hire", label: "Hire" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -15,7 +15,9 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const menuId = useId();
+  const servicesMenuId = useId();
 
   useEffect(() => {
     if (!open) return;
@@ -35,7 +37,10 @@ export function Header() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.matchMedia("(min-width: 768px)").matches) setOpen(false);
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        setOpen(false);
+        setServicesOpen(false);
+      }
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -50,8 +55,56 @@ export function Header() {
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
+          <Link href="/jobs" className={styles.navLink}>
+            Jobs
+          </Link>
+
+          <div
+            className={styles.servicesWrap}
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <Link
+              href="/services"
+              className={`${styles.navLink} ${styles.servicesTrigger} ${servicesOpen ? styles.servicesTriggerOpen : ""}`}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              aria-controls={servicesMenuId}
+              onFocus={() => setServicesOpen(true)}
+            >
+              Services
+              <span className={styles.caret} aria-hidden />
+            </Link>
+            <div
+              id={servicesMenuId}
+              className={`${styles.servicesMenu} ${servicesOpen ? styles.servicesMenuOpen : ""}`}
+              role="menu"
+              aria-label="Services"
+            >
+              {ourServices.map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/services#${item.id}`}
+                  className={styles.servicesItem}
+                  role="menuitem"
+                  onClick={() => setServicesOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              ))}
+              <Link
+                href="/services"
+                className={styles.servicesAll}
+                role="menuitem"
+                onClick={() => setServicesOpen(false)}
+              >
+                View all services
+              </Link>
+            </div>
+          </div>
+
           {nav
-            .filter((item) => item.href !== "/contact")
+            .filter((item) => item.href !== "/jobs" && item.href !== "/contact")
             .map((item) => (
               <Link key={item.href} href={item.href} className={styles.navLink}>
                 {item.label}
@@ -87,17 +140,33 @@ export function Header() {
         aria-label="Mobile"
         aria-hidden={!open}
       >
-        {nav.map((item) => (
+        <Link href="/jobs" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          Jobs
+        </Link>
+        <p className={styles.mobileGroupLabel}>Services</p>
+        {ourServices.map((item) => (
           <Link
-            key={item.href}
-            href={item.href}
-            className={styles.mobileLink}
+            key={item.id}
+            href={`/services#${item.id}`}
+            className={styles.mobileSubLink}
             tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
           >
-            {item.label}
+            {item.title}
           </Link>
         ))}
+        <Link href="/services" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          All services
+        </Link>
+        <Link href="/hire" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          Hire
+        </Link>
+        <Link href="/about" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          About
+        </Link>
+        <Link href="/contact" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+          Contact
+        </Link>
         <Link
           href="/hire"
           className={styles.mobileCta}

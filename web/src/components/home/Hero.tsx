@@ -42,8 +42,8 @@ export function Hero() {
           We place people who move companies forward.
         </h1>
         <p className={`${styles.support} animate-fade-up delay-2`}>
-          AIONEX is an agency-led recruiting partner for open roles and hard-to-find talent —
-          with private, curated matching for every search.
+          Recruiting, contract staffing, RPO, and compliance — private matching and workforce
+          support so you can focus on growth.
         </p>
         <div className={`${styles.actions} animate-fade-up delay-3`}>
           <Link href="/jobs" className="btn btn-accent">

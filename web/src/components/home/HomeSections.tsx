@@ -9,21 +9,43 @@ const steps = [
   },
   {
     title: "Match",
-    body: "AIONEX recruiters shortlist candidates privately — never via public search.",
+    body: "AIONEX shortlists privately — permanent, contract, campus, or leadership.",
   },
   {
     title: "Place",
-    body: "We coordinate interviews and close with people who move the work forward.",
+    body: "Interviews, offers, and handoff — with compliance support when you need it.",
+  },
+];
+
+const apart = [
+  {
+    title: "End-to-end workforce",
+    body: "From sourcing and onboarding to payroll and employee administration.",
+  },
+  {
+    title: "Compliance-led",
+    body: "PF, ESI, professional tax, and labour requirements handled with care.",
+  },
+  {
+    title: "Flexible staffing",
+    body: "Scale contract or permanent capacity as projects and seasons change.",
+  },
+  {
+    title: "Pan-India delivery",
+    body: "India-based support across industries — so ops stay close to your sites.",
   },
 ];
 
 const roles = [
-  { label: "Engineering", department: "engineering" },
-  { label: "Product", department: "product" },
-  { label: "Design", department: "design" },
-  { label: "Operations", department: "operations" },
-  { label: "Sales", department: "sales" },
-  { label: "Leadership", department: "leadership" },
+  { label: "IT & Software", href: "/jobs" },
+  { label: "Engineering", href: "/jobs?department=engineering" },
+  { label: "Manufacturing", href: "/jobs" },
+  { label: "BFSI", href: "/jobs" },
+  { label: "Pharma & Lifesciences", href: "/jobs" },
+  { label: "Sales & BD", href: "/jobs?department=sales" },
+  { label: "HR & Admin", href: "/jobs?department=operations" },
+  { label: "Freshers", href: "/jobs" },
+  { label: "Leadership", href: "/jobs?department=leadership" },
 ];
 
 /** Placeholder voice — swap for client-approved quotes later. Attribution: title + company only. */
@@ -270,13 +292,37 @@ export function HomeSections() {
         </div>
       </section>
 
+      <section className={`section ${styles.apart}`} aria-labelledby="apart-heading">
+        <div className="container">
+          <p className="eyebrow">What sets us apart</p>
+          <h2 id="apart-heading" className={styles.sectionTitle}>
+            Precision operations. Steady growth.
+          </h2>
+          <p className={styles.apartLead}>
+            Focus on your core business while we support hiring, contract staffing, and statutory
+            workforce administration.
+          </p>
+          <ul className={styles.apartList}>
+            {apart.map((item) => (
+              <li key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <Link href="/services" className="btn btn-dark" style={{ marginTop: "1.5rem" }}>
+            View all services
+          </Link>
+        </div>
+      </section>
+
       <section className={`section ${styles.roles}`}>
         <div className="container">
-          <p className="eyebrow">Roles we fill</p>
-          <h2 className={styles.sectionTitle}>Open searches across critical functions.</h2>
+          <p className="eyebrow">Talent we place</p>
+          <h2 className={styles.sectionTitle}>Expertise across disciplines.</h2>
           <div className={styles.chips}>
             {roles.map((role) => (
-              <Link key={role.department} href={`/jobs?department=${role.department}`}>
+              <Link key={role.label} href={role.href}>
                 {role.label}
               </Link>
             ))}
@@ -289,16 +335,16 @@ export function HomeSections() {
           <article className={styles.panel}>
             <p className="eyebrow">For candidates</p>
             <h3>Browse open roles. Apply with your resume.</h3>
-            <p>Search current JDs and send your profile directly to the AIONEX team.</p>
+            <p>Search current openings and send your profile directly to the AIONEX team.</p>
             <Link href="/jobs" className="btn btn-dark">
               View open roles
             </Link>
           </article>
           <article className={`${styles.panel} ${styles.panelDark}`}>
             <p className="eyebrow">For employers</p>
-            <h3>Need talent? Contact the agency.</h3>
+            <h3>Need talent or workforce support?</h3>
             <p>
-              There is no public candidate directory. Tell us what you need — we match offline.
+              Permanent, contract, RPO, or compliance — tell us what you need. We match offline.
             </p>
             <Link href="/hire" className="btn btn-accent">
               Hire with AIONEX
@@ -309,7 +355,7 @@ export function HomeSections() {
 
       <section className={`section ${styles.trust}`}>
         <div className="container">
-          <p>Trusted by teams who need precision hiring — not marketplace noise.</p>
+          <p>Trusted by teams that need precise hiring and compliant workforce support.</p>
         </div>
       </section>
     </>

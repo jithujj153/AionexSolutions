@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
-import { ourServices } from "@/lib/services";
+import { moreServices, navServices, ourProducts, type ServiceOffering } from "@/lib/services";
 import styles from "./page.module.css";
 
 export const metadata = pageMeta({
   title: "Services & Products",
   description:
-    "AIONEX services — campus placement, permanent and executive hiring, contract staffing, RPO, statutory compliance, and industry practices.",
+    "AIONEX services — executive search, permanent recruitment, contract hiring, payroll outsourcing, BPO, campus, RPO, and compliance.",
   path: "/services",
 });
 
@@ -51,26 +51,40 @@ const talentCategories = [
   "Supply Chain & Logistics",
 ];
 
-const products = [
-  {
-    id: "factory-erp",
-    title: "Factory end-to-end automation ERP",
-    summary:
-      "A unified ERP layer for plant operations — from planning and inventory through production, quality, and dispatch.",
-  },
-  {
-    id: "fuel-pump-erp",
-    title: "Fuel pump ERP",
-    summary:
-      "Purpose-built ERP for fuel pump and petroleum retail — sales, stock, shifts, and reconciliation.",
-  },
-  {
-    id: "custom-software",
-    title: "Custom software solutions",
-    summary:
-      "Bespoke applications and integrations when a product box doesn’t fit — web, internal tools, and system connections.",
-  },
-];
+function ServiceCards({ items }: { items: ServiceOffering[] }) {
+  return (
+    <div className={styles.cardGrid}>
+      {items.map((item) => (
+        <article key={item.id} id={item.id} className={styles.card}>
+          <div className={styles.cardMedia}>
+            <Image
+              src={item.image}
+              alt={item.imageAlt}
+              fill
+              sizes="(max-width: 860px) 100vw, 50vw"
+              className={styles.cardImage}
+              style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
+            />
+          </div>
+          <div className={styles.cardBody}>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+            {item.points ? (
+              <ul>
+                {item.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
+            <Link href={item.href ?? "/contact"} className={styles.cardCta}>
+              {item.href ? "Learn more →" : "Talk to us →"}
+            </Link>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
 
 export default function ServicesPage() {
   return (
@@ -79,49 +93,33 @@ export default function ServicesPage() {
         <p className="eyebrow">Services &amp; products</p>
         <h1 className={styles.title}>Our services. Your industries.</h1>
         <p className={styles.lead}>
-          Campus-to-leadership hiring, contract staffing, RPO, and statutory compliance — with
-          practice depth across the industries you operate in.
+          Executive search, permanent and contract hiring, payroll, and BPO — plus campus, RPO,
+          and compliance across the industries you operate in.
         </p>
       </section>
 
       <section className={`container ${styles.section}`} aria-labelledby="services-heading">
-        <p className="eyebrow">Our services</p>
+        <p className="eyebrow">Core services</p>
         <h2 id="services-heading" className={styles.sectionTitle}>
           How we partner with you.
         </h2>
         <p className={styles.sectionLead}>
-          Explore each lane — hover Services in the menu, or open a card below.
+          These five sit in the Services menu — open a card below for the detail.
         </p>
 
-        <div className={styles.cardGrid}>
-          {ourServices.map((item) => (
-            <article key={item.id} id={item.id} className={styles.card}>
-              <div className={styles.cardMedia}>
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(max-width: 860px) 100vw, 50vw"
-                  className={styles.cardImage}
-                />
-              </div>
-              <div className={styles.cardBody}>
-                <h3>{item.title}</h3>
-                <p>{item.summary}</p>
-                {item.points ? (
-                  <ul>
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                <Link href="/hire" className={styles.cardCta}>
-                  Talk to us →
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ServiceCards items={navServices} />
+      </section>
+
+      <section className={`container ${styles.section}`} aria-labelledby="more-services-heading">
+        <p className="eyebrow">Also offered</p>
+        <h2 id="more-services-heading" className={styles.sectionTitle}>
+          More ways we help.
+        </h2>
+        <p className={styles.sectionLead}>
+          Campus hiring, RPO, statutory compliance, and mid-to-senior search.
+        </p>
+
+        <ServiceCards items={moreServices} />
       </section>
 
       <section className={`container ${styles.section}`} aria-labelledby="talent-heading">
@@ -159,7 +157,7 @@ export default function ServicesPage() {
           ERP and custom build.
         </h2>
         <ol className={styles.list} aria-label="Products">
-          {products.map((item, index) => {
+          {ourProducts.map((item, index) => {
             const n = index + 1;
             return (
               <li key={item.id} id={item.id} className={styles.item}>
@@ -167,6 +165,9 @@ export default function ServicesPage() {
                 <div className={styles.body}>
                   <h3>{item.title}</h3>
                   <p className={styles.summary}>{item.summary}</p>
+                  <Link href={item.href} className={styles.cardCta}>
+                    Learn more →
+                  </Link>
                 </div>
               </li>
             );
@@ -179,7 +180,7 @@ export default function ServicesPage() {
           <p className="eyebrow">Next step</p>
           <h2 className={styles.ctaTitle}>Tell us what you need.</h2>
           <p className={styles.ctaLead}>
-            Campus drive, leadership seat, RPO, contract staffing, or compliance — start with a
+            Executive search, permanent or contract hiring, payroll, BPO, or campus — start with a
             short note.
           </p>
           <div className={styles.actions}>
@@ -187,7 +188,7 @@ export default function ServicesPage() {
               Hire talent
             </Link>
             <Link href="/jobs" className="btn btn-dark">
-              View open roles
+              View careers
             </Link>
             <Link href="/contact" className="btn btn-ghost">
               Contact AIONEX

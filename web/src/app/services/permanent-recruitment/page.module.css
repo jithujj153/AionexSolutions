@@ -1,0 +1,131 @@
+.page {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.hero {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: calc(var(--header-height) + 1.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  max-width: 14ch;
+  color: var(--color-ink-on-light);
+}
+
+.lead {
+  max-width: 48ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-muted-on-light);
+}
+
+.formCol {
+  display: flex;
+  min-width: 0;
+}
+
+.story {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.storyCopy {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.storyCopy p {
+  max-width: 58ch;
+  line-height: 1.7;
+  color: var(--color-muted-on-light);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  color: var(--color-ink-on-light);
+}
+
+.benefits {
+  background: var(--color-bg-dark);
+  color: var(--color-ink-on-dark);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.benefits .sectionTitle {
+  color: var(--color-ink-on-dark);
+}
+
+.benefitsLead {
+  margin-top: var(--space-4);
+  max-width: 52ch;
+  line-height: 1.65;
+  color: var(--color-muted-on-dark);
+}
+
+.benefitGrid {
+  list-style: none;
+  margin: var(--space-6) 0 var(--space-6);
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.benefitGrid li {
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: rgba(18, 24, 38, 0.7);
+}
+
+.benefitGrid h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+}
+
+.benefitGrid p {
+  color: var(--color-muted-on-dark);
+  line-height: 1.55;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.25rem);
+    align-items: stretch;
+  }
+
+  .formCol {
+    min-height: 100%;
+  }
+
+  .benefitGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) and (max-width: 959px) {
+  .benefitGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { AionexMark } from "@/components/brand/AionexMark";
-import { ourServices } from "@/lib/services";
+import { navServices, ourProducts } from "@/lib/services";
 import styles from "./Header.module.css";
 
 const nav = [
-  { href: "/jobs", label: "Jobs" },
-  { href: "/hire", label: "Hire" },
+  { href: "/jobs", label: "Career" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact us" },
 ];
 
 export function Header() {
@@ -56,7 +55,7 @@ export function Header() {
 
         <nav className={styles.nav} aria-label="Primary">
           <Link href="/jobs" className={styles.navLink}>
-            Jobs
+            Career
           </Link>
 
           <div
@@ -79,32 +78,52 @@ export function Header() {
               id={servicesMenuId}
               className={`${styles.servicesMenu} ${servicesOpen ? styles.servicesMenuOpen : ""}`}
               role="menu"
-              aria-label="Services"
+              aria-label="Services and products"
             >
-              {ourServices.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/services#${item.id}`}
-                  className={styles.servicesItem}
-                  role="menuitem"
-                  onClick={() => setServicesOpen(false)}
-                >
-                  {item.title}
-                </Link>
-              ))}
-              <Link
-                href="/services"
-                className={styles.servicesAll}
-                role="menuitem"
-                onClick={() => setServicesOpen(false)}
-              >
-                View all services
-              </Link>
+              <div className={styles.servicesCols}>
+                <div className={styles.servicesCol}>
+                  <p className={styles.servicesColLabel}>Services</p>
+                  {navServices.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={item.href ?? `/services#${item.id}`}
+                      className={styles.servicesItem}
+                      role="menuitem"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/services"
+                    className={styles.servicesAll}
+                    role="menuitem"
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    View all services
+                  </Link>
+                </div>
+                <div className={styles.servicesCol}>
+                  <p className={styles.servicesColLabel}>Products &amp; software</p>
+                  <p className={styles.servicesColLead}>ERP and custom build.</p>
+                  {ourProducts.map((item) => (
+                    <Link
+                      key={item.id}
+                      href={item.href}
+                      className={styles.servicesItem}
+                      role="menuitem"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
           {nav
-            .filter((item) => item.href !== "/jobs" && item.href !== "/contact")
+            .filter((item) => item.href !== "/jobs")
             .map((item) => (
               <Link key={item.href} href={item.href} className={styles.navLink}>
                 {item.label}
@@ -141,13 +160,13 @@ export function Header() {
         aria-hidden={!open}
       >
         <Link href="/jobs" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
-          Jobs
+          Career
         </Link>
         <p className={styles.mobileGroupLabel}>Services</p>
-        {ourServices.map((item) => (
+        {navServices.map((item) => (
           <Link
             key={item.id}
-            href={`/services#${item.id}`}
+            href={item.href ?? `/services#${item.id}`}
             className={styles.mobileSubLink}
             tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
@@ -158,14 +177,23 @@ export function Header() {
         <Link href="/services" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
           All services
         </Link>
-        <Link href="/hire" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
-          Hire
-        </Link>
+        <p className={styles.mobileGroupLabel}>Products &amp; software</p>
+        {ourProducts.map((item) => (
+          <Link
+            key={item.id}
+            href={item.href}
+            className={styles.mobileSubLink}
+            tabIndex={open ? 0 : -1}
+            onClick={() => setOpen(false)}
+          >
+            {item.title}
+          </Link>
+        ))}
         <Link href="/about" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
           About
         </Link>
         <Link href="/contact" className={styles.mobileLink} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
-          Contact
+          Contact us
         </Link>
         <Link
           href="/hire"

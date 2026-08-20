@@ -13,6 +13,7 @@
   width: 100%;
   border: 1px solid var(--color-border-light);
   background: var(--color-bg-light-elevated);
+  color: var(--color-ink-on-light);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
 }
@@ -44,10 +45,17 @@
 }
 
 .filters select {
+  color-scheme: light;
   border: 1px solid var(--color-border-light);
-  background: var(--color-bg-light-elevated);
+  background: #fff;
+  color: var(--color-ink-on-light);
   border-radius: var(--radius-md);
   padding: 0.75rem 0.85rem;
+}
+
+.filters select option {
+  color: #0f1724;
+  background: #fff;
 }
 
 @media (min-width: 860px) {

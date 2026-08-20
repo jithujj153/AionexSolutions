@@ -7,10 +7,10 @@ export function JobList({ jobs, total }: { jobs: Job[]; total: number }) {
   if (!jobs.length) {
     return (
       <div className={styles.empty}>
-        <h2>No open roles match these filters.</h2>
+        <h2>No career openings match these filters.</h2>
         <p>
-          Get notified when new roles go live.{" "}
-          <Link href="/alerts">Subscribe to job alerts</Link>.
+          Get notified when new openings go live.{" "}
+          <Link href="/alerts">Subscribe to career alerts</Link>.
         </p>
       </div>
     );
@@ -19,7 +19,7 @@ export function JobList({ jobs, total }: { jobs: Job[]; total: number }) {
   return (
     <div className={styles.wrap}>
       <p className={styles.count}>
-        {total} open role{total === 1 ? "" : "s"}
+        {total} career opening{total === 1 ? "" : "s"}
       </p>
       <ul className={styles.list}>
         {jobs.map((job, index) => (

@@ -4,7 +4,7 @@ import type { Job } from "./types";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aionex-web-one.vercel.app";
 const siteName = "AIONEX";
 const defaultDescription =
-  "AIONEX is a recruiting agency for open roles and hard-to-find talent. Browse jobs or hire through the agency.";
+  "AIONEX is a recruiting agency for career openings and hard-to-find talent. Browse careers or hire through the agency.";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
@@ -40,7 +40,7 @@ export function pageMeta({
       type: "website",
       images: [
         {
-          url: "/opengraph-image?v=5",
+          url: "/opengraph-image?v=6",
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -51,7 +51,7 @@ export function pageMeta({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: ["/twitter-image?v=5"],
+      images: ["/twitter-image?v=6"],
     },
     alternates: {
       canonical: url,

@@ -39,15 +39,17 @@ export function Hero() {
           </span>
         </div>
         <h1 className={`${styles.headline} animate-fade-up delay-1`}>
-          We place people who move companies forward.
+          Beyond Recruitment: AIONEX
+          <br />
+          Your Partner in Progress
         </h1>
         <p className={`${styles.support} animate-fade-up delay-2`}>
-          Recruiting, contract staffing, RPO, and compliance — private matching and workforce
-          support so you can focus on growth.
+          At AIONEX, we understand that Talent drives your business strategy, and we make it our
+          business to find that Talent.
         </p>
         <div className={`${styles.actions} animate-fade-up delay-3`}>
           <Link href="/jobs" className="btn btn-accent">
-            Browse open roles
+            Browse careers
           </Link>
           <Link href="/hire" className="btn btn-ghost">
             Hire talent

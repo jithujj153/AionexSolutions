@@ -77,7 +77,7 @@ export default async function OpenGraphImage() {
               maxWidth: "820px",
             }}
           >
-            Agency-led recruiting with private, curated matching for open roles and hard-to-find
+            Agency-led recruiting with private, curated matching for career openings and hard-to-find
             talent.
           </div>
         </div>
@@ -91,7 +91,7 @@ export default async function OpenGraphImage() {
             color: "#7eb6e8",
           }}
         >
-          <span>Jobs · Hire · Services</span>
+          <span>Career · Hire · Services</span>
           <span>aionexoutsourcing.com</span>
         </div>
       </div>

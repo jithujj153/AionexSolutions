@@ -61,12 +61,16 @@ function aionex_notify_hr_application($application_id, $job_id) {
     $resume_url = $resume_id ? wp_get_attachment_url($resume_id) : '';
     $resume_path = $resume_id ? get_attached_file($resume_id) : '';
 
-    $subject = 'New application: ' . ($job ? $job->post_title : 'Open role');
+    $subject = 'New application: ' . ($job ? $job->post_title : 'Resume registration');
     $body = '<p>A new candidate applied via the AIONEX site.</p>'
-        . '<p><strong>Job:</strong> ' . esc_html($job ? $job->post_title : '') . '<br>'
+        . '<p><strong>Job:</strong> ' . esc_html($job ? $job->post_title : 'Resume registration') . '<br>'
         . '<strong>Name:</strong> ' . esc_html($name) . '<br>'
         . '<strong>Email:</strong> ' . esc_html($email) . '<br>'
         . '<strong>Phone:</strong> ' . esc_html($phone) . '<br>'
+        . '<strong>Country:</strong> ' . esc_html(get_post_meta($application_id, 'country', true)) . '<br>'
+        . '<strong>Experience:</strong> ' . esc_html(get_post_meta($application_id, 'experience', true)) . '<br>'
+        . '<strong>User type:</strong> ' . esc_html(get_post_meta($application_id, 'user_type', true)) . '<br>'
+        . '<strong>Skills:</strong> ' . esc_html(get_post_meta($application_id, 'skills', true)) . '<br>'
         . '<strong>LinkedIn:</strong> ' . esc_html($linkedin) . '</p>'
         . '<p><strong>Cover note:</strong><br>' . nl2br(esc_html($note)) . '</p>'
         . ($resume_url ? '<p><a href="' . esc_url($resume_url) . '">Download resume</a></p>' : '')
@@ -86,11 +90,11 @@ function aionex_notify_applicant_received($application_id, $job_id) {
         return false;
     }
 
-    $job_title = $job ? $job->post_title : 'the role';
-    $subject = 'We received your application — ' . $job_title;
+    $job_title = $job ? $job->post_title : 'AIONEX talent pool';
+    $subject = $job ? 'We received your application — ' . $job_title : 'We received your resume — AIONEX';
     $greeting = $name ? 'Hi ' . esc_html($name) . ',' : 'Hi,';
     $body = '<p>' . $greeting . '</p>'
-        . '<p>Thank you for applying to <strong>' . esc_html($job_title) . '</strong> through AIONEX.</p>'
+        . '<p>Thank you for sharing your profile' . ($job ? ' for <strong>' . esc_html($job_title) . '</strong>' : '') . ' through AIONEX.</p>'
         . '<p>Our recruiting team has received your application and will review it shortly. If your profile is a strong match, we will contact you directly.</p>'
         . '<p>No further action is needed from you right now.</p>'
         . '<p>— AIONEX Careers<br>'

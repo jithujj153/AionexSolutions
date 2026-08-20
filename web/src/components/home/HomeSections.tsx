@@ -1,19 +1,49 @@
+import Image from "next/image";
 import Link from "next/link";
 import { OutcomesMetrics } from "@/components/home/AnimatedMetric";
 import styles from "./HomeSections.module.css";
 
-const steps = [
+const workPillars = [
   {
-    title: "Discover",
-    body: "We clarify the role, market, and what great looks like for your team.",
+    title: "What we do?",
+    body: "We specialize in delivering tailored HR solutions, from executive searches to contract hiring and payroll outsourcing. At AIONEX, we’re not just recruiters; we’re architects of career growth.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Team collaborating over laptops and documents",
   },
   {
-    title: "Match",
-    body: "AIONEX shortlists privately — permanent, contract, campus, or leadership.",
+    title: "How we can help?",
+    body: "We help businesses thrive by connecting them with exceptional talent. Our comprehensive services ensure that your workforce aligns seamlessly with your strategic goals, fostering success at every level.",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Modern office building against a clear sky",
   },
   {
-    title: "Place",
-    body: "Interviews, offers, and handoff — with compliance support when you need it.",
+    title: "Why partner with us?",
+    body: "Partnering with AIONEX means unlocking a world of unparalleled expertise and reliability. We’re your strategic ally, committed to delivering top-notch services that propel your business forward with confidence.",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&h=900&q=80&crop=faces",
+    imageAlt: "Professional smiling in an office setting",
+    imagePosition: "50% 18%",
+  },
+] as const;
+
+const whyChoose = [
+  {
+    title: "Experience",
+    body: "10+ years of delivering the best services.",
+  },
+  {
+    title: "Trust",
+    body: "Trusted by 100+ clients for 8500+ placements.",
+  },
+  {
+    title: "Innovation",
+    body: "Innovative packages and specialized services.",
+  },
+  {
+    title: "Reliability",
+    body: "Recognized in a short span for our reliable services.",
   },
 ];
 
@@ -145,12 +175,6 @@ const outcomes = [
     detail: "Full-time hires across eng, product, and ops",
   },
   {
-    value: 28,
-    suffix: " days",
-    label: "Median time-to-offer",
-    detail: "From brief approved to accepted offer",
-  },
-  {
     value: 91,
     suffix: "%",
     label: "Offer acceptance",
@@ -215,50 +239,72 @@ export function HomeSections() {
       </section>
 
       <section className={`${styles.archSection} ${styles.process}`} aria-labelledby="process-heading">
-        <div className={`${styles.archGrid} ${styles.archGridMediaRight}`}>
-          <div className={styles.archCopy}>
-            <div className={styles.archCopyInner}>
+        <div className={`container ${styles.processInner}`}>
+          <div className={styles.processHead}>
+            <div>
               <p className="eyebrow">How we work</p>
-              <h2 id="process-heading" className={styles.sectionTitle}>
-                Agency-led. Outcome-focused.
+              <h2 id="process-heading" className={styles.processTitle}>
+                Discover AIONEX: Architects of Success
               </h2>
-              <ol className={`${styles.steps} ${styles.archSteps}`}>
-                {steps.map((step, index) => (
-                  <li key={step.title}>
-                    <span className={styles.stepIndex}>0{index + 1}</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.body}</p>
-                  </li>
-                ))}
-              </ol>
+            </div>
+            <div className={styles.processIntro}>
+              <p>
+                At AIONEX, we craft success stories through innovative HR solutions. Explore our
+                journey and discover how we’re redefining the future of manpower recruitment and
+                outsourcing consultancy.
+              </p>
+              <Link href="/about" className="btn btn-dark">
+                Read more
+              </Link>
             </div>
           </div>
 
-          <div className={`${styles.archMedia} ${styles.archMediaRight}`} aria-hidden>
-            <div className={styles.archFrame}>
-              <span className={styles.archMeta}>02 / Section · Process</span>
-              <video
-                className={styles.archVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              >
-                <source src="/media/process.mp4" type="video/mp4" />
-              </video>
-              <div className={styles.archGuides}>
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-              <span className={styles.archCorner} data-pos="tl" />
-              <span className={styles.archCorner} data-pos="tr" />
-              <span className={styles.archCorner} data-pos="bl" />
-              <span className={styles.archCorner} data-pos="br" />
-            </div>
+          <div className={styles.processGrid}>
+            {workPillars.map((item) => (
+              <article key={item.title} className={styles.processCard}>
+                <div className={styles.processCardMedia}>
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 860px) 100vw, 33vw"
+                    className={styles.processCardImage}
+                    style={"imagePosition" in item ? { objectPosition: item.imagePosition } : undefined}
+                  />
+                </div>
+                <div className={styles.processCardBody}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className={`section ${styles.whyChoose}`} aria-labelledby="why-choose-heading">
+        <div className={styles.whyChooseBg} aria-hidden>
+          <Image
+            src="/media/why-choose-globe.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className={styles.whyChooseBgImage}
+          />
+        </div>
+        <div className={`container ${styles.whyChooseInner}`}>
+          <p className="eyebrow">Why choose AIONEX</p>
+          <h2 id="why-choose-heading" className={styles.whyChooseTitle}>
+            Enriching Work-Life, Reducing Attrition
+          </h2>
+          <ul className={styles.whyChooseGrid}>
+            {whyChoose.map((item) => (
+              <li key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -334,10 +380,10 @@ export function HomeSections() {
         <div className={`container ${styles.splitGrid}`}>
           <article className={styles.panel}>
             <p className="eyebrow">For candidates</p>
-            <h3>Browse open roles. Apply with your resume.</h3>
+            <h3>Browse careers. Apply with your resume.</h3>
             <p>Search current openings and send your profile directly to the AIONEX team.</p>
             <Link href="/jobs" className="btn btn-dark">
-              View open roles
+              View careers
             </Link>
           </article>
           <article className={`${styles.panel} ${styles.panelDark}`}>

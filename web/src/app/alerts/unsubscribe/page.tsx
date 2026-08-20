@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Unsubscribe",
-  description: "Unsubscribe from AIONEX job alerts.",
+  description: "Unsubscribe from AIONEX career alerts.",
   path: "/alerts/unsubscribe",
 });
 

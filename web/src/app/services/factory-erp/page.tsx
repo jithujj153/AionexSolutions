@@ -1,0 +1,15 @@
+import { ProductDetail } from "@/components/services/ProductDetail";
+import { pageMeta } from "@/lib/seo";
+import { ourProducts } from "@/lib/services";
+
+const product = ourProducts.find((item) => item.id === "factory-erp")!;
+
+export const metadata = pageMeta({
+  title: product.title,
+  description: product.summary,
+  path: product.href,
+});
+
+export default function FactoryErpPage() {
+  return <ProductDetail product={product} />;
+}

@@ -4,16 +4,16 @@ import { SITE_EMAIL, SITE_EMAIL_HREF, SITE_PHONE, SITE_PHONE_HREF } from "@/lib/
 import styles from "./Footer.module.css";
 
 const explore = [
-  { href: "/jobs", label: "Open roles" },
+  { href: "/jobs", label: "Career" },
   { href: "/services", label: "Services & products" },
-  { href: "/alerts", label: "Job alerts" },
+  { href: "/alerts", label: "Career alerts" },
   { href: "/about", label: "About AIONEX" },
   { href: "/privacy", label: "Privacy" },
 ];
 
 const employers = [
   { href: "/hire", label: "Hire talent" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact us" },
   { href: "/about", label: "How we work" },
 ];
 
@@ -29,12 +29,12 @@ export function Footer() {
               <span>AIONEX</span>
             </Link>
             <p className={styles.tagline}>
-              Agency-led recruiting for open roles and hard-to-find talent — private, curated
+              Agency-led recruiting for career openings and hard-to-find talent — private, curated
               matching.
             </p>
             <div className={styles.ctaRow}>
               <Link href="/jobs" className="btn btn-ghost">
-                Browse roles
+                Browse careers
               </Link>
               <Link href="/hire" className="btn btn-accent">
                 Hire talent

@@ -68,18 +68,19 @@
 }
 
 .card:hover {
-  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border-light));
+  border-color: #8bb6de;
   transform: translateY(-2px);
 }
 
 .cardMedia {
   position: relative;
-  min-height: 200px;
+  aspect-ratio: 4 / 3;
   background: var(--color-bg-dark);
 }
 
 .cardImage {
   object-fit: cover;
+  object-position: center;
 }
 
 .cardBody {

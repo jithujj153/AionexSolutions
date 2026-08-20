@@ -19,12 +19,6 @@ const outcomes = [
     detail: "Permanent and contract hires across industries",
   },
   {
-    value: 28,
-    suffix: " days",
-    label: "Median time-to-offer",
-    detail: "From brief approved to accepted offer",
-  },
-  {
     value: 91,
     suffix: "%",
     label: "Offer acceptance",
@@ -49,7 +43,7 @@ const audiences = [
   },
   {
     title: "Candidates with intent",
-    body: "Professionals who want clear open roles and a direct path to the AIONEX team.",
+    body: "Professionals who want clear career openings and a direct path to the AIONEX team.",
   },
 ];
 
@@ -288,7 +282,7 @@ export default function AboutPage() {
             <p className="eyebrow">Work with AIONEX</p>
             <h2 className={styles.h2}>Ready to hire — or ready for your next role?</h2>
             <p className={styles.sectionLead}>
-              Employers: tell us what you need. Candidates: browse open roles and apply with your
+              Employers: tell us what you need. Candidates: browse careers and apply with your
               resume.
             </p>
             <div className={styles.ctaActions}>
@@ -296,7 +290,7 @@ export default function AboutPage() {
                 Hire talent
               </Link>
               <Link href="/jobs" className="btn btn-dark">
-                Browse open roles
+                Browse careers
               </Link>
             </div>
           </div>

@@ -1,0 +1,112 @@
+.band {
+  background: var(--color-bg-light);
+  color: var(--color-ink-on-light);
+  padding: 0 0 var(--space-8);
+  scroll-margin-top: calc(var(--header-height) + 0.75rem);
+}
+
+.card {
+  max-width: 52rem;
+  margin-inline: auto;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-light-elevated);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.head {
+  margin-bottom: var(--space-6);
+}
+
+.head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  letter-spacing: -0.02em;
+  margin-top: var(--space-3);
+}
+
+.head p:last-child {
+  margin-top: var(--space-3);
+  color: var(--color-muted-on-light);
+  line-height: 1.55;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4) var(--space-5);
+  align-items: start;
+}
+
+.field {
+  display: grid;
+  grid-template-rows: auto auto minmax(1.15rem, auto);
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.field span {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-ink-on-light);
+}
+
+.field small {
+  color: var(--color-muted-on-light);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 2.85rem;
+  color-scheme: light;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-light);
+  color: var(--color-ink-on-light);
+  padding: 0.7rem 0.85rem;
+}
+
+.field select option {
+  color: #0f1724;
+  background: #fff;
+}
+
+.field input[type="file"] {
+  padding: 0.45rem 0.65rem;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid rgba(61, 143, 219, 0.45);
+  border-color: var(--color-accent);
+}
+
+.footer {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.legal {
+  font-size: 0.85rem;
+  color: var(--color-muted-on-light);
+  line-height: 1.5;
+}
+
+.legal a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer {
+    grid-column: 1 / -1;
+  }
+}

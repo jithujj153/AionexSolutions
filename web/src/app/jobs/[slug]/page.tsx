@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!job) {
     return pageMeta({
       title: "Role not found",
-      description: "This job is no longer open.",
+      description: "This career opening is no longer available.",
       path: `/jobs/${slug}`,
     });
   }

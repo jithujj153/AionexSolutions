@@ -20,7 +20,7 @@ export function AlertForm() {
     }
     if (!data.get("consent")) {
       setStatus("error");
-      setMessage("Please agree to receive job alerts.");
+      setMessage("Please agree to receive career alerts.");
       return;
     }
 
@@ -63,7 +63,7 @@ export function AlertForm() {
       <label className="field" style={{ gridTemplateColumns: "auto 1fr", alignItems: "center" }}>
         <input name="consent" type="checkbox" required />
         <span>
-          I agree to receive job alerts and accept the <Link href="/privacy">Privacy Policy</Link>.
+          I agree to receive career alerts and accept the <Link href="/privacy">Privacy Policy</Link>.
         </span>
       </label>
       <button className="btn btn-accent" type="submit" disabled={status === "loading"}>

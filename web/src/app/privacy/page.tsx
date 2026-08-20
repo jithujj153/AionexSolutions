@@ -2,7 +2,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "Privacy",
-  description: "How AIONEX handles resumes, applications, and job alert data.",
+  description: "How AIONEX handles resumes, applications, and career alert data.",
   path: "/privacy",
 });
 
@@ -15,19 +15,19 @@ export default function PrivacyPage() {
         <div className="prose" style={{ marginTop: "2rem" }}>
           <p>
             AIONEX collects personal information when you apply for a role, request hiring support,
-            subscribe to job alerts, or contact us.
+            subscribe to career alerts, or contact us.
           </p>
           <h2>What we collect</h2>
           <ul>
             <li>Contact details (name, email, phone)</li>
             <li>Resume / CV files and cover notes</li>
             <li>Company and role requirements for hire requests</li>
-            <li>Job alert preferences</li>
+            <li>Career alert preferences</li>
           </ul>
           <h2>How we use it</h2>
           <p>
             We use this information to evaluate applications, respond to hire requests, send
-            consented job alerts, and operate our recruiting service. Applications are reviewed by
+            consented career alerts, and operate our recruiting service. Applications are reviewed by
             AIONEX Admin/HR staff.
           </p>
           <h2>Sharing</h2>

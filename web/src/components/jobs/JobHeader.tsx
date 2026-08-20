@@ -11,7 +11,7 @@ export function JobHeader({ job }: { job: Job }) {
 
   return (
     <header className={styles.header}>
-      <p className="eyebrow">Open role</p>
+      <p className="eyebrow">Career</p>
       <h1>{job.title}</h1>
       {meta.length > 0 && <p className={styles.meta}>{meta.join(" · ")}</p>}
       {job.salary_range ? <p className={styles.salary}>{job.salary_range}</p> : null}

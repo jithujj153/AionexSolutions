@@ -192,19 +192,43 @@ function aionex_rest_apply(WP_REST_Request $request) {
             $job_id = (int) $by_slug->ID;
         }
     }
-    $job = get_post($job_id);
-    if (!$job || $job->post_type !== 'job' || $job->post_status !== 'publish' || get_post_meta($job_id, 'job_status', true) === 'closed') {
+
+    $general = $job_id <= 0;
+    $job = $general ? null : get_post($job_id);
+    if (!$general && (!$job || $job->post_type !== 'job' || $job->post_status !== 'publish' || get_post_meta($job_id, 'job_status', true) === 'closed')) {
         return new WP_Error('invalid_job', 'This role is not open for applications.', ['status' => 400]);
     }
 
+    $first = sanitize_text_field((string) $request->get_param('first_name'));
+    $last = sanitize_text_field((string) $request->get_param('last_name'));
     $name = sanitize_text_field((string) $request->get_param('name'));
+    if (!$name) {
+        $name = trim($first . ' ' . $last);
+    }
     $email = sanitize_email((string) $request->get_param('email'));
+    $country_code = sanitize_text_field((string) $request->get_param('country_code'));
+    $mobile = sanitize_text_field((string) $request->get_param('mobile'));
     $phone = sanitize_text_field((string) $request->get_param('phone'));
+    if (!$phone && $mobile) {
+        $phone = trim($country_code . ' ' . $mobile);
+    }
     $linkedin = esc_url_raw((string) $request->get_param('linkedin'));
     $cover = sanitize_textarea_field((string) $request->get_param('cover_note'));
+    $country = sanitize_text_field((string) $request->get_param('country'));
+    $experience = sanitize_text_field((string) $request->get_param('experience'));
+    $user_type = sanitize_text_field((string) $request->get_param('user_type'));
+    $skills = sanitize_text_field((string) $request->get_param('skills'));
+    $skill_list = array_values(array_filter(array_map('trim', preg_split('/[,;]+/', $skills) ?: [])));
+    if (count($skill_list) > 5) {
+        return new WP_Error('too_many_skills', 'Enter up to 5 skills only.', ['status' => 400]);
+    }
+    $skills = implode(', ', $skill_list);
 
     if (!$name || !is_email($email) || !$phone) {
         return new WP_Error('invalid_fields', 'Name, email, and phone are required.', ['status' => 400]);
+    }
+    if ($general && (!$experience || !$user_type || !$skills)) {
+        return new WP_Error('invalid_fields', 'Experience, user type, and skills are required.', ['status' => 400]);
     }
 
     $files = $request->get_file_params();
@@ -245,16 +269,25 @@ function aionex_rest_apply(WP_REST_Request $request) {
     $app_id = wp_insert_post([
         'post_type' => 'application',
         'post_status' => 'publish',
-        'post_title' => $name . ' — ' . get_the_title($job_id),
+        'post_title' => $name . ' — ' . ($job ? get_the_title($job_id) : 'Resume registration'),
     ]);
     if (is_wp_error($app_id) || !$app_id) {
         return new WP_Error('apply_failed', 'Unable to save application.', ['status' => 500]);
     }
 
-    update_post_meta($app_id, 'job_id', $job_id);
+    if ($job_id) {
+        update_post_meta($app_id, 'job_id', $job_id);
+    }
     update_post_meta($app_id, 'name', $name);
+    update_post_meta($app_id, 'first_name', $first);
+    update_post_meta($app_id, 'last_name', $last);
     update_post_meta($app_id, 'email', $email);
     update_post_meta($app_id, 'phone', $phone);
+    update_post_meta($app_id, 'country', $country);
+    update_post_meta($app_id, 'country_code', $country_code);
+    update_post_meta($app_id, 'experience', $experience);
+    update_post_meta($app_id, 'user_type', $user_type);
+    update_post_meta($app_id, 'skills', $skills);
     update_post_meta($app_id, 'linkedin', $linkedin);
     update_post_meta($app_id, 'cover_note', $cover);
     update_post_meta($app_id, 'resume_attachment_id', $attach_id);
@@ -266,7 +299,9 @@ function aionex_rest_apply(WP_REST_Request $request) {
 
     return rest_ensure_response([
         'ok' => true,
-        'message' => 'Application sent — AIONEX HR will review and contact you.',
+        'message' => $general
+            ? 'Resume received — AIONEX HR will review and contact you.'
+            : 'Application sent — AIONEX HR will review and contact you.',
     ]);
 }
 

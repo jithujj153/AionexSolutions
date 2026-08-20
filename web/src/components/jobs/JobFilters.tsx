@@ -49,8 +49,8 @@ export function JobFilters({ filters }: Props) {
         <input
           name="q"
           defaultValue={values.q}
-          placeholder="Search open roles"
-          aria-label="Search open roles"
+          placeholder="Search careers"
+          aria-label="Search careers"
         />
         <button type="submit" className="btn btn-dark">
           Search

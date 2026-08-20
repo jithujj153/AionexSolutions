@@ -31,7 +31,7 @@ export function UnsubscribePanel() {
   return (
     <form className="form" onSubmit={onSubmit}>
       <p className="page-lead" style={{ marginTop: 0 }}>
-        Stop receiving AIONEX job alerts for this email.
+        Stop receiving AIONEX career alerts for this email.
       </p>
       <button className="btn btn-dark" type="submit" disabled={!token || status === "loading"}>
         {status === "loading" ? "Updating…" : "Unsubscribe"}

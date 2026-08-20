@@ -18,7 +18,7 @@ const syne = Syne({
 export const metadata: Metadata = pageMeta({
   title: "AIONEX",
   description:
-    "AIONEX is a recruiting agency for open roles and hard-to-find talent. Browse jobs or hire through the agency.",
+    "AIONEX is a recruiting agency for career openings and hard-to-find talent. Browse careers or hire through the agency.",
   path: "/",
 });
 

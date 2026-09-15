@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { OutcomesMetrics } from "@/components/home/AnimatedMetric";
 import { outcomes, outcomesHeading, outcomesLead } from "@/lib/outcomes";
+import { showVoices } from "@/lib/site";
 import styles from "./HomeSections.module.css";
 
 const workPillars = [
@@ -282,6 +283,7 @@ export function HomeSections() {
         </div>
       </section>
 
+      {showVoices ? (
       <section className={`section ${styles.testimonials}`} aria-labelledby="testimonials-heading">
         <div className="container">
           <p className="eyebrow">Voices</p>
@@ -311,6 +313,7 @@ export function HomeSections() {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section className={`section ${styles.apart}`} aria-labelledby="apart-heading">
         <div className="container">

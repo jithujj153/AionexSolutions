@@ -42,8 +42,10 @@
 }
 
 .mark {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
 }
 
 .wordmark {

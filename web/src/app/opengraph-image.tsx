@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
-  const markBytes = await readFile(join(process.cwd(), "public/brand/aionex-mark.png"));
+  const markBytes = await readFile(join(process.cwd(), "public/brand/aionex-logo.png"));
   const markSrc = `data:image/png;base64,${markBytes.toString("base64")}`;
 
   return new ImageResponse(
@@ -36,13 +36,13 @@ export default async function OpenGraphImage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={markSrc}
-            width={88}
-            height={88}
+            width={96}
+            height={80}
             alt=""
             style={{
-              width: 88,
-              height: 88,
-              borderRadius: 20,
+              width: 96,
+              height: 80,
+              objectFit: "contain",
             }}
           />
           <div

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
-<path d="M130.37 67.72C133.39 67.91 136.14 70.52 138.79 71.91C144.12 74.72 149.19 78 154.48 80.91C171.01 89.99 187.03 99.89 203.54 109C231.5 124.42 258.6 141.8 286.8 156.8C308.22 168.2 329.47 180.36 350.15 192.97C365.1 202.09 380.64 210.33 395.83 218.98C400.2 221.47 413.8 227.77 416.44 230.82C414.83 233.41 410.94 234.53 408.34 235.95C403.19 238.78 398 241.71 392.98 244.8C380.7 252.36 367.9 259.05 355.39 266.12C346.69 271.04 338.27 276.7 329.27 281.11C322.87 284.25 316.76 288.54 310.48 292.01C308.66 293.02 304.75 296.49 302.65 296.1C300.58 295.73 291.78 284.25 289.96 281.98C279.55 269 267.76 256.89 256.84 244.3C226.36 209.19 195.76 174.2 164.97 139.37C156.91 130.24 148.68 121.23 140.78 111.94C138.11 108.8 131.49 103.23 130.4 99.52C129.48 96.4 130.22 92.07 130.22 88.81C130.23 81.89 129.59 74.59 130.37 67.72ZM130.24 161.67C153.71 189.29 177.19 216.9 200.66 244.52C198.15 247.47 188.26 249.71 184.34 251.23C171.2 256.35 158.06 261.5 144.75 265.99C140.19 267.53 135.14 271.07 130.24 270.76C130.24 234.4 130.24 198.04 130.24 161.67ZM226.71 278.08C238.67 291.85 250.62 305.63 262.58 319.41C218.51 344.43 174.44 369.45 130.37 394.47C129.64 388.27 130.41 381.81 130.31 375.57C130.09 362.2 130.29 348.77 130.31 335.39C130.31 331.59 129.01 317.06 130.77 314.55C132.26 312.42 135.78 312.15 137.99 311.25C143.58 308.96 149.34 307.2 154.95 304.94C170.7 298.61 187.01 293.51 202.71 286.94C208.77 284.4 220.7 279.18 226.71 278.08Z" fill="#010101" fill-rule="evenodd" stroke="#010101" stroke-width="0.25" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="500" height="500" role="img" aria-label="AIONEX">
+  <defs>
+    <linearGradient id="a-fill" x1="18" y1="220" x2="110" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a3050"/>
+      <stop offset="0.45" stop-color="#2f7fd1"/>
+      <stop offset="1" stop-color="#7eb6e8"/>
+    </linearGradient>
+    <linearGradient id="a-fold" x1="50" y1="200" x2="100" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3d8fdb"/>
+      <stop offset="1" stop-color="#d4e8f8"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="70" y1="200" x2="200" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f7fd1"/>
+      <stop offset="0.55" stop-color="#5aa3e6"/>
+      <stop offset="1" stop-color="#d4e8f8"/>
+    </linearGradient>
+    <linearGradient id="swoosh" x1="210" y1="220" x2="150" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3d8fdb"/>
+      <stop offset="1" stop-color="#7eb6e8"/>
+    </linearGradient>
+    <radialGradient id="star" cx="198" cy="28" r="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eef3fa"/>
+      <stop offset="1" stop-color="#7eb6e8"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#a-fill)" d="M86 22C78 36 48 118 20 218h44c16-78 38-148 50-184C108 28 94 20 86 22Z"/>
+  <path fill="url(#a-fold)" d="M96 46c-8 18-28 86-40 154h28c10-62 28-122 36-152-6-4-16-6-24-2Z"/>
+  <path fill="url(#swoosh)" d="M214 214c-8-56-28-118-58-150 18 28 38 88 46 150h12Z"/>
+  <path fill="url(#figure)" d="M156 86c-32 28-68 62-90 92 22-8 70-48 96-78 8-16 22-36 38-52-18 10-34 24-44 38Z"/>
+  <circle cx="164" cy="78" r="15" fill="url(#figure)"/>
+  <path fill="url(#star)" d="M198 10l5.2 14.2 14.8 5.2-14.8 5.2L198 49l-5.2-14.4-14.8-5.2 14.8-5.2Z"/>
 </svg>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { OutcomesMetrics } from "@/components/home/AnimatedMetric";
+import { outcomes, outcomesHeading, outcomesLead } from "@/lib/outcomes";
 import styles from "./HomeSections.module.css";
 
 const workPillars = [
@@ -22,9 +23,8 @@ const workPillars = [
     title: "Why partner with us?",
     body: "Partnering with AIONEX means unlocking a world of unparalleled expertise and reliability. We’re your strategic ally, committed to delivering top-notch services that propel your business forward with confidence.",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&h=900&q=80&crop=faces",
-    imageAlt: "Professional smiling in an office setting",
-    imagePosition: "50% 18%",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&h=900&q=80",
+    imageAlt: "Handshake closing a business agreement",
   },
 ] as const;
 
@@ -35,7 +35,7 @@ const whyChoose = [
   },
   {
     title: "Trust",
-    body: "Trusted by 100+ clients for 8500+ placements.",
+    body: "Trusted by 138+ clients for 8500+ placements.",
   },
   {
     title: "Innovation",
@@ -166,28 +166,6 @@ const testimonials = [
   },
 ];
 
-/** Boutique-agency scale — specific, modest, grounded (swap for client-real figures later). */
-const outcomes = [
-  {
-    value: 140,
-    suffix: "+",
-    label: "Placements closed",
-    detail: "Full-time hires across eng, product, and ops",
-  },
-  {
-    value: 91,
-    suffix: "%",
-    label: "Offer acceptance",
-    detail: "Candidates we introduce who receive an offer",
-  },
-  {
-    value: 86,
-    suffix: "%",
-    label: "Still in role at 12 months",
-    detail: "Retention check across completed searches",
-  },
-];
-
 export function HomeSections() {
   return (
     <>
@@ -224,12 +202,9 @@ export function HomeSections() {
               <div className={styles.outcomesIntro}>
                 <p className="eyebrow">Outcomes</p>
                 <h2 id="outcomes-heading" className={styles.sectionTitle}>
-                  Happy recruiting, measured quietly.
+                  {outcomesHeading}
                 </h2>
-                <p className={styles.outcomesLead}>
-                  Trailing 24 months across retained searches. Not marketplace volume — searches we
-                  ran end to end with hiring managers.
-                </p>
+                <p className={styles.outcomesLead}>{outcomesLead}</p>
               </div>
 
               <OutcomesMetrics items={outcomes} />
@@ -269,7 +244,6 @@ export function HomeSections() {
                     fill
                     sizes="(max-width: 860px) 100vw, 33vw"
                     className={styles.processCardImage}
-                    style={"imagePosition" in item ? { objectPosition: item.imagePosition } : undefined}
                   />
                 </div>
                 <div className={styles.processCardBody}>

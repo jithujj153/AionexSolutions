@@ -117,6 +117,10 @@
   max-width: 16ch;
 }
 
+.outcomesIntro .sectionTitle {
+  max-width: 22ch;
+}
+
 /* Architecture modular grid — shared by Outcomes + Process video sections */
 .archSection {
   --arch-line: rgba(15, 23, 36, 0.14);
@@ -337,7 +341,7 @@
   color: var(--color-muted-on-light);
   font-size: 0.92rem;
   line-height: 1.5;
-  max-width: 28ch;
+  max-width: 42ch;
 }
 
 .processInner {
@@ -743,30 +747,6 @@
 
   .metric:nth-child(2n) {
     border-right: none;
-  }
-
-  .metric:nth-last-child(-n + 2) {
-    border-bottom: none;
-  }
-}
-
-@media (min-width: 1200px) {
-  .metrics {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .metric {
-    border-bottom: none;
-    padding: var(--space-5) var(--space-4) var(--space-5) 0;
-  }
-
-  .metric:nth-child(2n) {
-    border-right: 1px solid var(--color-border-light);
-  }
-
-  .metric:last-child {
-    border-right: none;
-    padding-right: 0;
   }
 
   .metric:nth-last-child(-n + 2) {

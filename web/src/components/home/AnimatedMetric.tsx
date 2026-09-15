@@ -86,7 +86,7 @@ function CountUp({
   return (
     <span className={styles.metricValue}>
       {prefix}
-      {display}
+      {display.toLocaleString("en-US")}
       {suffix}
     </span>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { OutcomesMetrics } from "@/components/home/AnimatedMetric";
 import { SITE_EMAIL, SITE_EMAIL_HREF, SITE_PHONE, SITE_PHONE_HREF } from "@/lib/contact";
+import { outcomes, outcomesHeading, outcomesLead } from "@/lib/outcomes";
 import { pageMeta } from "@/lib/seo";
 import styles from "./page.module.css";
 
@@ -10,27 +11,6 @@ export const metadata = pageMeta({
     "About AIONEX Outsourcing — recruiting, contract staffing, RPO, and statutory compliance with people, process, and technology.",
   path: "/about",
 });
-
-const outcomes = [
-  {
-    value: 140,
-    suffix: "+",
-    label: "Placements closed",
-    detail: "Permanent and contract hires across industries",
-  },
-  {
-    value: 91,
-    suffix: "%",
-    label: "Offer acceptance",
-    detail: "Candidates we introduce who receive an offer",
-  },
-  {
-    value: 35,
-    suffix: "+",
-    label: "Hiring partners",
-    detail: "Teams we support across India",
-  },
-];
 
 const audiences = [
   {
@@ -187,16 +167,13 @@ export default function AboutPage() {
             Vision, mission, and culture.
           </h2>
           <ol className={styles.pillars}>
-            {pillars.map((item, index) => (
+            {pillars.map((item) => (
               <li key={item.title}>
                 <div className={styles.pillarHead}>
                   <span className={styles.pillarIcon} aria-hidden>
                     <PillarIcon name={item.icon} />
                   </span>
-                  <div>
-                    <span className={styles.pillarIndex}>{`0${index + 1}`}</span>
-                    <h3>{item.title}</h3>
-                  </div>
+                  <h3>{item.title}</h3>
                 </div>
                 <p>{item.body}</p>
               </li>
@@ -208,10 +185,8 @@ export default function AboutPage() {
       <section className={styles.sectionAlt}>
         <div className="container">
           <p className="eyebrow">By the numbers</p>
-          <h2 className={styles.h2}>Outcomes we work toward.</h2>
-          <p className={styles.sectionLead}>
-            Trailing 24 months across retained searches and placements we ran end to end.
-          </p>
+          <h2 className={`${styles.h2} ${styles.h2Wide}`}>{outcomesHeading}</h2>
+          <p className={styles.sectionLead}>{outcomesLead}</p>
           <OutcomesMetrics items={outcomes} />
         </div>
       </section>

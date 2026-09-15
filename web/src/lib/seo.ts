@@ -27,9 +27,12 @@ export function pageMeta({
     title: fullTitle,
     description,
     icons: {
-      icon: [{ url: "/brand/favicon.svg", type: "image/svg+xml" }],
-      shortcut: ["/brand/favicon.svg"],
-      apple: [{ url: "/brand/favicon.svg" }],
+      icon: [
+        { url: "/brand/favicon.png?v=7", type: "image/png", sizes: "32x32" },
+        { url: "/brand/aionex-mark.png?v=7", type: "image/png", sizes: "256x256" },
+      ],
+      shortcut: ["/brand/favicon.png?v=7"],
+      apple: [{ url: "/brand/aionex-mark.png?v=7", sizes: "180x180" }],
     },
     openGraph: {
       title: fullTitle,
@@ -40,7 +43,7 @@ export function pageMeta({
       type: "website",
       images: [
         {
-          url: "/opengraph-image?v=6",
+          url: "/opengraph-image?v=7",
           width: 1200,
           height: 630,
           alt: fullTitle,
@@ -51,7 +54,7 @@ export function pageMeta({
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: ["/twitter-image?v=6"],
+      images: ["/twitter-image?v=7"],
     },
     alternates: {
       canonical: url,

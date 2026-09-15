@@ -1,8 +1,5 @@
 import Link from "next/link";
-import { AionexMark } from "@/components/brand/AionexMark";
 import styles from "./Hero.module.css";
-
-const WORDMARK = "AIONEX";
 
 export function Hero() {
   return (
@@ -22,22 +19,6 @@ export function Hero() {
       </div>
 
       <div className={`container ${styles.inner}`}>
-        <div className={styles.brandRow}>
-          <span className={styles.markWrap} aria-hidden>
-            <AionexMark className={styles.mark} />
-          </span>
-          <span className={styles.wordmark} aria-label="AIONEX">
-            {WORDMARK.split("").map((letter, index) => (
-              <span
-                key={`${letter}-${index}`}
-                className={styles.letter}
-                style={{ animationDelay: `${820 + index * 80}ms` }}
-              >
-                {letter}
-              </span>
-            ))}
-          </span>
-        </div>
         <h1 className={`${styles.headline} animate-fade-up delay-1`}>
           Beyond Recruitment: AIONEX
           <br />

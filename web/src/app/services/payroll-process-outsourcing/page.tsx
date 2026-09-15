@@ -47,7 +47,7 @@ export default function PayrollOutsourcingPage() {
           <h1 className={styles.title}>Streamlined Payroll Excellence</h1>
           <p className={styles.lead}>
             Elevate your business efficiency with AIONEX’s Payroll Process Outsourcing. Our seasoned
-            team, with over 6 years of experience, ensures accuracy, compliance, and cost reduction,
+            team, with over 10 years of experience, ensures accuracy, compliance, and cost reduction,
             allowing your HR staff to focus on enhancing employee satisfaction and retention.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function PayrollOutsourcingPage() {
             our dedicated payroll team takes care of the intricacies.
           </p>
           <p>
-            AIONEX brings over 6 years of expertise to payroll services, understanding the crucial
+            AIONEX brings over 10 years of expertise to payroll services, understanding the crucial
             role it plays in maintaining a competitive edge and fostering employee retention. Our
             payroll experts, renowned for their deep domain knowledge, prioritize accuracy and
             quality in every aspect of the payroll process. This commitment not only safeguards

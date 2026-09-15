@@ -21,7 +21,6 @@ const industries = [
   "FMCG",
   "Healthcare",
   "Industrial",
-  "Internet",
   "Logistics",
   "Media & Entertainment",
   "Outsourcing & Offshoring",

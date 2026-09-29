@@ -71,7 +71,7 @@ export default function ExecutiveSearchPage() {
         <div className={styles.storyMedia}>
           <Image
             src="/media/executive-search-process.png"
-            alt="AIONEX executive search process with current logo: understand need, target search, share shortlist, interviews and closure"
+            alt="AIONEX executive search process: understand need, target search, screen and shortlist, interviews and follow-up"
             fill
             sizes="(max-width: 960px) 100vw, 46vw"
             className={styles.storyImage}

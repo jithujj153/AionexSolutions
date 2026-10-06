@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata = pageMeta({
   title: "Executive Search",
   description:
-    "Executive search excellence with AIONEX in Bangalore — confidential leadership hiring aligned to vision, culture, and mandate.",
+    "Executive search excellence with AIONEX in Bengaluru — confidential leadership hiring aligned to vision, culture, and mandate.",
   path: "/services/executive-search",
 });
 
@@ -38,7 +38,7 @@ export default function ExecutiveSearchPage() {
           <p className="eyebrow">Executive Search</p>
           <h1 className={styles.title}>Executive Search Excellence</h1>
           <p className={styles.lead}>
-            Discover unparalleled executive recruitment with AIONEX in Bangalore. We go beyond
+            Discover unparalleled executive recruitment with AIONEX in Bengaluru. We go beyond
             hiring, crafting career growth for professionals and aligning executives with visionary
             companies. Elevate your leadership team with AIONEX’s expertise.
           </p>
@@ -54,7 +54,7 @@ export default function ExecutiveSearchPage() {
             How we search.
           </h2>
           <p>
-            AIONEX stands as the pinnacle executive search consultancy in Bangalore, dedicated to
+            AIONEX stands as the pinnacle executive search consultancy in Bengaluru, dedicated to
             transforming organizations and corporate firms through strategic talent acquisition. More
             than just recruitment, we guide job seekers toward sustainable career growth. Our
             executive recruitment and consulting services focus on the higher echelons of companies,

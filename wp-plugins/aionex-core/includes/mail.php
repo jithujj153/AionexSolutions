@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 function aionex_get_hr_emails() {
-    $raw = get_option('aionex_hr_emails', 'Business@aionexoutsourcing.com');
+    $raw = get_option('aionex_hr_emails', 'career@aionexoutsourcing.com');
     $emails = array_filter(array_map('trim', explode(',', (string) $raw)));
     $valid = [];
     foreach ($emails as $email) {
@@ -17,12 +17,12 @@ function aionex_get_hr_emails() {
         return $valid;
     }
     $fallback = get_option('admin_email');
-    return is_email($fallback) ? [$fallback] : ['Business@aionexoutsourcing.com'];
+    return is_email($fallback) ? [$fallback] : ['career@aionexoutsourcing.com'];
 }
 
 function aionex_primary_hr_email() {
     $emails = aionex_get_hr_emails();
-    return $emails[0] ?? 'Business@aionexoutsourcing.com';
+    return $emails[0] ?? 'career@aionexoutsourcing.com';
 }
 
 function aionex_mail_headers($extra = []) {

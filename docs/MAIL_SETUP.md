@@ -17,7 +17,7 @@ Upload package: `wp-plugins/aionex-mu-plugins.zip` → `wp-content/mu-plugins/` 
 ## 1. Hostinger mailbox
 
 1. Open [hPanel](https://hpanel.hostinger.com) → **Emails**.
-2. Create (or confirm) mailbox: **`Business@aionexoutsourcing.com`**.
+2. Create (or confirm) mailbox: **`career@aionexoutsourcing.com`**.
 3. Set a strong password and save it.
 4. Open **Manage** → **Connect Apps** / **Configuration** and note:
 
@@ -26,10 +26,10 @@ Upload package: `wp-plugins/aionex-mu-plugins.zip` → `wp-content/mu-plugins/` 
 | SMTP host | `smtp.hostinger.com` |
 | Port | `465` |
 | Encryption | SSL |
-| Username | full email (`Business@aionexoutsourcing.com`) |
+| Username | full email (`career@aionexoutsourcing.com`) |
 | Password | mailbox password |
 
-If the custom domain is not on Hostinger mail yet, create a mailbox on the Hostinger temporary domain and use that as From until DNS cutover — then switch From + SMTP user to `Business@…`.
+If the custom domain is not on Hostinger mail yet, create a mailbox on the Hostinger temporary domain and use that as From until DNS cutover — then switch From + SMTP user to `career@…`.
 
 ---
 
@@ -47,7 +47,7 @@ If the custom domain is not on Hostinger mail yet, create a mailbox on the Hosti
 
 1. WP Admin → **Plugins → Add New** → search **WP Mail SMTP** → Install → Activate.
 2. Wizard / **WP Mail SMTP → Settings**:
-   - From Email: `Business@aionexoutsourcing.com`
+   - From Email: `career@aionexoutsourcing.com`
    - From Name: `AIONEX Careers`
    - Force From Email: **On**
    - Mailer: **Other SMTP**
@@ -66,9 +66,9 @@ If the custom domain is not on Hostinger mail yet, create a mailbox on the Hosti
 
 | Field | Value |
 |---|---|
-| Admin / HR emails | `Business@aionexoutsourcing.com` (comma-separated for more) |
+| Admin / HR emails | `career@aionexoutsourcing.com` (comma-separated for more) |
 | From name | `AIONEX Careers` |
-| From email | `Business@aionexoutsourcing.com` |
+| From email | `career@aionexoutsourcing.com` |
 | Public Next.js site URL | `https://aionex-web-one.vercel.app` |
 | CORS origins | Keep localhost; `*.vercel.app` is allowed by plugin |
 

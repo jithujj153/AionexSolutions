@@ -24,7 +24,7 @@ Full setup: [MAIL_SETUP.md](MAIL_SETUP.md).
 
 **Summary**
 
-1. Hostinger mailbox for `Business@aionexoutsourcing.com`
+1. Hostinger mailbox for `career@aionexoutsourcing.com`
 2. Install **WP Mail SMTP** → Other SMTP → Hostinger credentials → Send Test
 3. **Settings → AIONEX** — HR emails + From = that mailbox; public site URL = Vercel
 

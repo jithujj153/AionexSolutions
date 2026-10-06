@@ -25,7 +25,7 @@ const benefits = [
   },
   {
     title: "Distinctive Approach to Staffing",
-    body: "AIONEX stands out as a leading staffing agency in Bangalore, thanks to our distinctive recruitment process, connecting clients with the industry’s best talent.",
+    body: "AIONEX stands out as a leading staffing agency in Bengaluru, thanks to our distinctive recruitment process, connecting clients with the industry’s best talent.",
   },
 ];
 

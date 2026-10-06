@@ -10,7 +10,7 @@
 | AIONEX Core **1.0.3** (CORS + auto-replies) | Re-upload `wp-plugins/aionex-mu-plugins.zip` → `mu-plugins/` |
 | Mail service | Follow [MAIL_SETUP.md](MAIL_SETUP.md) end-to-end |
 | WP Mail SMTP + Hostinger mailbox | Required for HR + auto-replies |
-| Settings → AIONEX | HR/From = Business@; public URL = Vercel |
+| Settings → AIONEX | HR/From = career@; public URL = Vercel |
 | Form smoke test | Apply / Hire / Contact / Alerts → WP rows + emails both ways |
 
 ## Deploy Next.js to Vercel

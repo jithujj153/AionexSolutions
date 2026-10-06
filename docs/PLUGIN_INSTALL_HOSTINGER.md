@@ -25,7 +25,7 @@ Hostinger’s normal Plugins uploader is failing Activate for this site. Use a *
 8. WP Admin → refresh  
    You should see **Must-Use** plugins (or Jobs menu in the sidebar)
 9. **Settings → Permalinks → Save**
-10. **Settings → AIONEX** → confirm HR email is `Business@aionexoutsourcing.com`
+10. **Settings → AIONEX** → confirm HR email is `career@aionexoutsourcing.com`
 11. Complete mail: see **[MAIL_SETUP.md](MAIL_SETUP.md)** (WP Mail SMTP + Hostinger mailbox + tests)
 12. Test:  
     `https://linen-stinkbug-102889.hostingersite.com/wp-json/aionex/v1/jobs`

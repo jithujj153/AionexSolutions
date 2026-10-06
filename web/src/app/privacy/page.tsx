@@ -1,3 +1,4 @@
+import { SITE_EMAIL, SITE_EMAIL_HREF, SITE_PHONE, SITE_PHONE_HREF } from "@/lib/contact";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -43,8 +44,8 @@ export default function PrivacyPage() {
           <h2>Contact</h2>
           <p>
             Privacy questions: use the <a href="/contact">Contact</a> form, call{" "}
-            <a href="tel:+919591469847">+91-9591469847</a>, or email{" "}
-            <a href="mailto:Business@aionexoutsourcing.com">Business@aionexoutsourcing.com</a>.
+            <a href={SITE_PHONE_HREF}>{SITE_PHONE}</a>, or email{" "}
+            <a href={SITE_EMAIL_HREF}>{SITE_EMAIL}</a>.
           </p>
         </div>
       </div>

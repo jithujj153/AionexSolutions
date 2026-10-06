@@ -16,12 +16,12 @@ function aionex_ensure_defaults() {
 
     $hr = trim((string) get_option('aionex_hr_emails', ''));
     if ($hr === '') {
-        update_option('aionex_hr_emails', 'Business@aionexoutsourcing.com');
+        update_option('aionex_hr_emails', 'career@aionexoutsourcing.com');
     }
 
     $from = trim((string) get_option('aionex_from_email', ''));
     if ($from === '' || !is_email($from)) {
-        update_option('aionex_from_email', 'Business@aionexoutsourcing.com');
+        update_option('aionex_from_email', 'career@aionexoutsourcing.com');
     }
 
     if (trim((string) get_option('aionex_from_name', '')) === '') {
